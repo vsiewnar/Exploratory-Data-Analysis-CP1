@@ -27,13 +27,15 @@ reqDataset <- tabAll[days,]
 #########################
 # The second graph
 
+# Global Active Power
 global <- reqDataset[,3]
 global <- as.numeric(paste(global))
 voltage <- as.numeric(paste(reqDataset[,5]))
 
-
+#x-axis
 x <- seq(from = 1, to = 2880, by = 1)
 
+#Write to PNG
 png(filename = "plot2.png")
 plot(global ~ x, type = "l", axes = F, xlab = "", ylab = "Global Active Power (kilowatts)", main = "")
 axis(side = 1, at = c(0,1440,2880), labels = c("Thu","Fri","Sat"))
